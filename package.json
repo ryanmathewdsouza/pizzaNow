@@ -1,0 +1,29 @@
+{
+  "name": "pizzaNow",
+  "version": "1.0.0",
+  "description": "You have been approached by a web design agency. You have been asked to build a working prototype of a webpage. A pizza delivery company wants you to build a page offering clients a selection of pizzas, you can come up with the pizza varieties and may use other sources to assist you. The expectation from the client is that the details of the pizza should be accompanied by an image and that each pizza can be sold with:",
+  "source": "./src/index.html",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanmathewdsouza/pizzaNow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanmathewdsouza/pizzaNow/issues"
+  },
+  "homepage": "https://github.com/ryanmathewdsouza/pizzaNow#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.6.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.1.3"
+  }
+}
