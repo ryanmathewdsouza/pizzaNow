@@ -11433,6 +11433,11 @@ h1, .h1 {
   text-align: center;
 }
 
+.fa-plus {
+  position: relative;
+  left: 90%;
+}
+
 body {
   color: #fff;
   background-color: #8b0000;
