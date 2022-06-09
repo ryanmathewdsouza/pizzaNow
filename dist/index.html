@@ -22,7 +22,32 @@
 
     <h1>Pizza Now</h1>
 
-    <button id="plus" class="fa-solid fa-plus"></button>
+<!--    code below has been replaced by button trigger modal starting on line 29-->
+<!--    <button id="plus" class="fa-solid fa-plus"></button>-->
+
+    <!-- Button trigger modal -->
+    <button id="plus" type="button" class="btn btn-primary fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#order-modal">
+        Add item
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="order-modal" tabindex="-1" aria-labelledby="order-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-body" id="order-modal-label">Add an item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-body">
+                    does this appear?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add item</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- link to external script.js file -->
     <script src="/index.ed82e8a1.js" defer=""></script>

@@ -504,12 +504,12 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"cyUIL":[function(require,module,exports) {
 var _bootstrap = require("bootstrap");
-let current = 0;
-function addItem() {
-    alert("Item added to order");
-}
-const plus = document.getElementById("plus");
-plus.onclick = addItem;
+let current = 0; // commented out code triggers a custom function, replaced this for bootstrap modal code
+ // function addItem() {
+ //     alert ("Item added to order");
+ // }
+ // const plus = document.getElementById("plus");
+ // plus.onclick = addItem;
 
 },{"bootstrap":"h36JB"}],"h36JB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
