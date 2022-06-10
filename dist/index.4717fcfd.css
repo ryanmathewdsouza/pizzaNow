@@ -11438,6 +11438,14 @@ h1, .h1 {
   left: 90%;
 }
 
+.pizza-size {
+  float: left;
+}
+
+.pizza-add-item {
+  float: right;
+}
+
 body {
   color: #fff;
   background-color: #8b0000;

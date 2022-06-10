@@ -9,6 +9,16 @@ h1 {
   left: 90%;
 }
 
+.pizza-size {
+  //display: inline-block !important;
+  float: left;
+}
+
+.pizza-add-item {
+  //display: inline-block !important;
+  float: right;
+}
+
 body {
   background-color: darkred;
   color: white;
