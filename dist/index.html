@@ -41,8 +41,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-body">
-                    Current items in basket
-                </div>
+                    <table id="basket-table">
+                        <tr>
+                            <th>Size</th>
+                            <th>Crust</th>
+                            <th>Item</th>
+                        </tr>
+                    <table>
+                </table></table></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Checkout</button>
@@ -63,8 +69,136 @@
 
 <!--                        wrap following code in div class="row", and add col-md-8 as a class to 'select' and 'add item'
                             link to align both of these items on the same line-->
+                        <form>
+                            <div class="row">
+                                <select name="grilled-vegi-pesto-size" id="grilled-vegi-pesto-size" class="pizza-size col-md-8">
+                                    <option selected="" disabled="">Select size</option>
+                                    <option value="Pizzanormous" data-price="22">Pizzanormous - £22</option>
+                                    <option value="Large" data-price="18">Large - £18</option>
+                                    <option value="Medium" data-price="15">Medium - £15</option>
+                                    <option value="Small" data-price="12">Small - £12</option>
+                                </select>
+                                <a id="pesto-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addPesto()">Add item</a>
+                            </div>
+                            <div class="row">
+                                <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust" class="pizza-size col-md-8">
+                                    <option selected="" disabled="">Select crust</option>
+                                    <option value="Italian">Thin Italian Base</option>
+                                    <option value="Stone Crust">Stone Crust Base</option>
+                                    <option value="Cheese Stuffed">Cheese Stuffed Crust Base</option>
+                                    <option value="Vegan Base">Vegan Base</option>
+                                    <option value="Gluten Free Base">Gluten Free Base</option>
+                                </select>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/Absolute-Banger.feb78a4b.jpg" class="card-img-top" alt="Absolute Banger Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">Absolute Banger</h5>
+                        <label for="absolute-banger-size">Choose a size:</label>
+
                         <div class="row">
-                            <select name="grilled-vegi-pesto-size" id="grilled-vegi-pesto-size" class="pizza-size col-md-8">
+                            <select name="absolute-banger-size" id="absolute-banger-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="Pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="Large" price="18">Large - £18</option>
+                                <option value="Medium" price="15">Medium - £15</option>
+                                <option value="Small" price="12">Small - £12</option>
+                            </select>
+                            <a id="banger-add" class="pizza-add-item btn btn-primary col-md-4" onclick="bangerAdd()">Add item</a>
+                        </div>
+                        <div class="row">
+                            <select name="absolute-banger-crust" id="absolute-banger-crust" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select crust</option>
+                                <option value="Italian">Thin Italian Base</option>
+                                <option value="Stone Crust">Stone Crust Base</option>
+                                <option value="Cheese Stuffed">Cheese Stuffed Crust Base</option>
+                                <option value="Vegan Base">Vegan Base</option>
+                                <option value="Gluten Free Base">Gluten Free Base</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/The-Cheeseburger.8b17ea97.jpg" class="card-img-top" alt="Cheeseburger Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">The Cheeseburger</h5>
+                        <label for="the-cheeseburger-size">Choose a size:</label>
+
+                        <div class="row">
+                            <select name="the-cheeseburger-size" id="the-cheeseburger-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="the-cheeseburger-pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="the-cheeseburger-large" price="18">Large - £18</option>
+                                <option value="the-cheeseburger-medium" price="15">Medium - £15</option>
+                                <option value="the-cheeseburger-small" price="12">Small - £12</option>
+                            </select>
+                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                        </div>
+                        <div class="row">
+                            <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust4" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select crust</option>
+                                <option value="italian">Thin Italian Base</option>
+                                <option value="stone-crust">Stone Crust Base</option>
+                                <option value="cheese-stuffed">Cheese Stuffed Crust Base</option>
+                                <option value="vegan-base">Vegan Base</option>
+                                <option value="gluten-free-base">Gluten Free Base</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/The-Meatfielder.084b8cb6.jpg" class="card-img-top" alt="Meatfielder Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">The Meatfielder</h5>
+                        <label for="the-meatfielder-size">Choose a size:</label>
+
+                        <div class="row">
+                            <select name="the-meatfielder-size" id="the-meatfielder-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="the-meatfielder-pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="the-meatfielder-large" price="18">Large - £18</option>
+                                <option value="the-meatfielder-medium" price="15">Medium - £15</option>
+                                <option value="the-meatfielder-small" price="12">Small - £12</option>
+                            </select>
+                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                        </div>
+                        <div class="row">
+                            <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust5" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select crust</option>
+                                <option value="italian">Thin Italian Base</option>
+                                <option value="stone-crust">Stone Crust Base</option>
+                                <option value="cheese-stuffed">Cheese Stuffed Crust Base</option>
+                                <option value="vegan-base">Vegan Base</option>
+                                <option value="gluten-free-base">Gluten Free Base</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/Grilled-Vegi-Pesto.5c4b1de1.jpg" class="card-img-top" alt="Grilled Vegi Pesto Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">Grilled Vegi Pesto</h5>
+                        <label for="grilled-vegi-pesto-size">Choose a size:</label>
+
+                        <!--                        wrap following code in div class="row", and add col-md-8 as a class to 'select' and 'add item'
+                                                    link to align both of these items on the same line-->
+                        <div class="row">
+                            <select name="grilled-vegi-pesto-size" id="grilled-vegi-pesto-different" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
                                 <option value="grilled-vegi-pesto-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="grilled-vegi-pesto-large" price="18">Large - £18</option>
                                 <option value="grilled-vegi-pesto-medium" price="15">Medium - £15</option>
@@ -84,7 +218,8 @@
                         <label for="absolute-banger-size">Choose a size:</label>
 
                         <div class="row">
-                            <select name="absolute-banger-size" id="absolute-banger-size" class="pizza-size col-md-8">
+                            <select name="absolute-banger-size" id="absolute-banger-size1" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
                                 <option value="absolute-banger-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="absolute-banger-large" price="18">Large - £18</option>
                                 <option value="absolute-banger-medium" price="15">Medium - £15</option>
@@ -104,6 +239,7 @@
 
                         <div class="row">
                             <select name="the-cheeseburger-size" id="the-cheeseburger-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
                                 <option value="the-cheeseburger-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="the-cheeseburger-large" price="18">Large - £18</option>
                                 <option value="the-cheeseburger-medium" price="15">Medium - £15</option>
@@ -123,6 +259,7 @@
 
                         <div class="row">
                             <select name="the-meatfielder-size" id="the-meatfielder-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
                                 <option value="the-meatfielder-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="the-meatfielder-large" price="18">Large - £18</option>
                                 <option value="the-meatfielder-medium" price="15">Medium - £15</option>
@@ -134,7 +271,90 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/Original-Cheese-&-Tomato.d09e8fef.jpg" class="card-img-top" alt="Original Cheese & Tomato Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">Original Cheese & Tomato</h5>
+                        <label for="original-cheese-&-tomato-size">Choose a size:</label>
+
+                        <div class="row">
+                            <select name="original-cheese-&-tomato-size" id="original-cheese-&-tomato-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="original-cheese-&-tomato-pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="original-cheese-&-tomato-large" price="18">Large - £18</option>
+                                <option value="original-cheese-&-tomato-medium" price="15">Medium - £15</option>
+                                <option value="original-cheese-&-tomato-small" price="12">Small - £12</option>
+                            </select>
+                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/Mighty-Meaty.88058edc.jpg" class="card-img-top" alt="Mighty Meaty Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">Mighty Meaty</h5>
+                        <label for="mighty-meaty-size">Choose a size:</label>
+
+                        <div class="row">
+                            <select name="mighty-meaty-size" id="mighty-meaty-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="mighty-meaty-pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="mighty-meaty-large" price="18">Large - £18</option>
+                                <option value="mighty-meaty-medium" price="15">Medium - £15</option>
+                                <option value="mighty-meaty-small" price="12">Small - £12</option>
+                            </select>
+                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/The-Cheeseburger.8b17ea97.jpg" class="card-img-top" alt="Cheeseburger Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">The Cheeseburger</h5>
+                        <label for="the-cheeseburger-size">Choose a size:</label>
+
+                        <div class="row">
+                            <select name="the-cheeseburger-size" id="the-cheeseburger-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="the-cheeseburger-pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="the-cheeseburger-large" price="18">Large - £18</option>
+                                <option value="the-cheeseburger-medium" price="15">Medium - £15</option>
+                                <option value="the-cheeseburger-small" price="12">Small - £12</option>
+                            </select>
+                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-2 sm-1">
+                <div class="card" style="width: 18rem">
+                    <img src="/The-Meatfielder.084b8cb6.jpg" class="card-img-top" alt="Meatfielder Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title text-body">The Meatfielder</h5>
+                        <label for="the-meatfielder-size">Choose a size:</label>
+
+                        <div class="row">
+                            <select name="the-meatfielder-size" id="the-meatfielder-size" class="pizza-size col-md-8">
+                                <option selected="" disabled="">Select size</option>
+                                <option value="the-meatfielder-pizzanormous" price="22">Pizzanormous - £22</option>
+                                <option value="the-meatfielder-large" price="18">Large - £18</option>
+                                <option value="the-meatfielder-medium" price="15">Medium - £15</option>
+                                <option value="the-meatfielder-small" price="12">Small - £12</option>
+                            </select>
+                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    
 
     <!-- link to external script.js file -->
     <script src="/index.ed82e8a1.js" defer=""></script>
