@@ -11438,6 +11438,10 @@ h1, .h1 {
   left: 90%;
 }
 
+h3, .h3 {
+  text-align: center;
+}
+
 .pizza-size {
   float: left;
 }

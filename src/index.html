@@ -61,6 +61,8 @@
         </div>
     </div>
 
+    <h3>Regular pizzas</h3>
+
 <!--    pizzas-->
     <div class="container">
         <div class="row">
@@ -86,7 +88,7 @@
                                 <a id="pesto-add" class="pizza-add-item btn btn-primary col-md-4" onclick='addPesto()'>Add item</a>
                             </div>
                             <div class="row">
-                                <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust" class="pizza-size col-md-8">
+                                <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust" class="pizza-crust col-md-8">
                                     <option selected disabled>Select crust</option>
                                     <option value="Italian">Thin Italian Base</option>
                                     <option value="Stone Crust">Stone Crust Base</option>
@@ -110,15 +112,15 @@
                         <div class="row">
                             <select name="absolute-banger-size" id="absolute-banger-size" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
-                                <option value="Pizzanormous" price="22">Pizzanormous - £22</option>
-                                <option value="Large" price="18">Large - £18</option>
-                                <option value="Medium" price="15">Medium - £15</option>
-                                <option value="Small" price="12">Small - £12</option>
+                                <option value="Pizzanormous, Absolute Banger Pizza, 22">Pizzanormous - £22</option>
+                                <option value="Large, Absolute Banger Pizza, 18">Large - £18</option>
+                                <option value="Medium, Absolute Banger Pizza, 15">Medium - £15</option>
+                                <option value="Small, Absolute Banger Pizza, 12">Small - £12</option>
                             </select>
                             <a id="banger-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addBanger()">Add item</a>
                         </div>
                         <div class="row">
-                            <select name="absolute-banger-crust" id="absolute-banger-crust" class="pizza-size col-md-8">
+                            <select name="absolute-banger-crust" id="absolute-banger-crust" class="pizza-crust col-md-8">
                                 <option selected disabled>Select crust</option>
                                 <option value="Italian">Thin Italian Base</option>
                                 <option value="Stone Crust">Stone Crust Base</option>
@@ -140,21 +142,21 @@
                         <div class="row">
                             <select name="the-cheeseburger-size" id="the-cheeseburger-size" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
-                                <option value="the-cheeseburger-pizzanormous" price="22">Pizzanormous - £22</option>
-                                <option value="the-cheeseburger-large" price="18">Large - £18</option>
-                                <option value="the-cheeseburger-medium" price="15">Medium - £15</option>
-                                <option value="the-cheeseburger-small" price="12">Small - £12</option>
+                                <option value="Pizzanormous, Cheeseburger Pizza, 22">Pizzanormous - £22</option>
+                                <option value="Large, Cheeseburger Pizza, 18">Large - £18</option>
+                                <option value="Medium, Cheeseburger Pizza, 15">Medium - £15</option>
+                                <option value="Small, Cheeseburger Pizza, 12">Small - £12</option>
                             </select>
-                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                            <a id="the-cheeseburger-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addTheCheeseburger()">Add item</a>
                         </div>
                         <div class="row">
-                            <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust4" class="pizza-size col-md-8">
+                            <select name="the-cheeseburger-crust" id="the-cheeseburger-crust" class="pizza-crust col-md-8">
                                 <option selected disabled>Select crust</option>
-                                <option value="italian">Thin Italian Base</option>
-                                <option value="stone-crust">Stone Crust Base</option>
-                                <option value="cheese-stuffed">Cheese Stuffed Crust Base</option>
-                                <option value="vegan-base">Vegan Base</option>
-                                <option value="gluten-free-base">Gluten Free Base</option>
+                                <option value="Italian">Thin Italian Base</option>
+                                <option value="Stone-Crust">Stone Crust Base</option>
+                                <option value="Cheese-Stuffed">Cheese Stuffed Crust Base</option>
+                                <option value="Vegan-Base">Vegan Base</option>
+                                <option value="Gluten-Free-Base">Gluten Free Base</option>
                             </select>
                         </div>
                     </div>
@@ -170,21 +172,21 @@
                         <div class="row">
                             <select name="the-meatfielder-size" id="the-meatfielder-size" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
-                                <option value="the-meatfielder-pizzanormous" price="22">Pizzanormous - £22</option>
-                                <option value="the-meatfielder-large" price="18">Large - £18</option>
-                                <option value="the-meatfielder-medium" price="15">Medium - £15</option>
-                                <option value="the-meatfielder-small" price="12">Small - £12</option>
+                                <option value="Pizzanormous, Meatfielder Pizza, 22">Pizzanormous - £22</option>
+                                <option value="Large, Meatfielder Pizza, 18">Large - £18</option>
+                                <option value="Medium, Meatfielder Pizza, 15">Medium - £15</option>
+                                <option value="Small, Meatfielder Pizza, 12">Small - £12</option>
                             </select>
-                            <a href="#" class="pizza-add-item btn btn-primary col-md-4">Add item</a>
+                            <a id="the-meatfielder-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addTheMeatfielder()">Add item</a>
                         </div>
                         <div class="row">
-                            <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust5" class="pizza-size col-md-8">
+                            <select name="the-meatfielder-crust" id="the-meatfielder-crust" class="pizza-crust col-md-8">
                                 <option selected disabled>Select crust</option>
-                                <option value="italian">Thin Italian Base</option>
-                                <option value="stone-crust">Stone Crust Base</option>
-                                <option value="cheese-stuffed">Cheese Stuffed Crust Base</option>
-                                <option value="vegan-base">Vegan Base</option>
-                                <option value="gluten-free-base">Gluten Free Base</option>
+                                <option value="Italian">Thin Italian Base</option>
+                                <option value="Stone-Crust">Stone Crust Base</option>
+                                <option value="Cheese-Stuffed">Cheese Stuffed Crust Base</option>
+                                <option value="Vegan-Base">Vegan Base</option>
+                                <option value="Gluten-Free-Base">Gluten Free Base</option>
                             </select>
                         </div>
                     </div>
@@ -243,7 +245,7 @@
                         <label for="the-cheeseburger-size">Choose a size:</label>
 
                         <div class="row">
-                            <select name="the-cheeseburger-size" id="the-cheeseburger-size" class="pizza-size col-md-8">
+                            <select name="the-cheeseburger-size" id="the-cheeseburger-size1" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
                                 <option value="the-cheeseburger-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="the-cheeseburger-large" price="18">Large - £18</option>
@@ -263,7 +265,7 @@
                         <label for="the-meatfielder-size">Choose a size:</label>
 
                         <div class="row">
-                            <select name="the-meatfielder-size" id="the-meatfielder-size" class="pizza-size col-md-8">
+                            <select name="the-meatfielder-size" id="the-meatfielder-size2" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
                                 <option value="the-meatfielder-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="the-meatfielder-large" price="18">Large - £18</option>
@@ -325,7 +327,7 @@
                         <label for="the-cheeseburger-size">Choose a size:</label>
 
                         <div class="row">
-                            <select name="the-cheeseburger-size" id="the-cheeseburger-size" class="pizza-size col-md-8">
+                            <select name="the-cheeseburger-size" id="the-cheeseburger-size2" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
                                 <option value="the-cheeseburger-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="the-cheeseburger-large" price="18">Large - £18</option>
@@ -345,7 +347,7 @@
                         <label for="the-meatfielder-size">Choose a size:</label>
 
                         <div class="row">
-                            <select name="the-meatfielder-size" id="the-meatfielder-size" class="pizza-size col-md-8">
+                            <select name="the-meatfielder-size" id="the-meatfielder-size3" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
                                 <option value="the-meatfielder-pizzanormous" price="22">Pizzanormous - £22</option>
                                 <option value="the-meatfielder-large" price="18">Large - £18</option>
