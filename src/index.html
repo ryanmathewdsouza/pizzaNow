@@ -16,6 +16,9 @@
 <!--    code below links to font awesome kit-->
     <script src="https://kit.fontawesome.com/720e2d420f.js" crossorigin="anonymous"></script>
 
+<!--    code below links to jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 
@@ -46,6 +49,7 @@
                             <th>Size</th>
                             <th>Crust</th>
                             <th>Item</th>
+                            <th>Price</th>
                         </tr>
                     <table>
                 </div>
@@ -71,14 +75,15 @@
                             link to align both of these items on the same line-->
                         <form>
                             <div class="row">
+                                <input type="hidden" id="Grilled Vegi Pesto Pizza" value="Grilled Vegi Pesto Pizza">
                                 <select name="grilled-vegi-pesto-size" id="grilled-vegi-pesto-size" class="pizza-size col-md-8">
                                     <option selected disabled>Select size</option>
-                                    <option value="Pizzanormous" data-price="22">Pizzanormous - £22</option>
-                                    <option value="Large" data-price="18">Large - £18</option>
-                                    <option value="Medium" data-price="15">Medium - £15</option>
-                                    <option value="Small" data-price="12">Small - £12</option>
+                                    <option value="Pizzanormous, Grilled Vegi Pesto Pizza, 22">Pizzanormous - £22</option>
+                                    <option value="Large, Grilled Vegi Pesto Pizza, 18">Large - £18</option>
+                                    <option value="Medium, Grilled Vegi Pesto Pizza, 15">Medium - £15</option>
+                                    <option value="Small, Grilled Vegi Pesto Pizza, 12">Small - £12</option>
                                 </select>
-                                <a id="pesto-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addPesto()">Add item</a>
+                                <a id="pesto-add" class="pizza-add-item btn btn-primary col-md-4" onclick='addPesto()'>Add item</a>
                             </div>
                             <div class="row">
                                 <select name="grilled-vegi-pesto-crust" id="grilled-vegi-pesto-crust" class="pizza-size col-md-8">
@@ -110,7 +115,7 @@
                                 <option value="Medium" price="15">Medium - £15</option>
                                 <option value="Small" price="12">Small - £12</option>
                             </select>
-                            <a id="banger-add" class="pizza-add-item btn btn-primary col-md-4" onclick="bangerAdd()">Add item</a>
+                            <a id="banger-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addBanger()">Add item</a>
                         </div>
                         <div class="row">
                             <select name="absolute-banger-crust" id="absolute-banger-crust" class="pizza-size col-md-8">
