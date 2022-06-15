@@ -507,7 +507,6 @@ var _bootstrap = require("bootstrap");
 let pestoAdd = document.getElementById("pesto-add");
 pestoAdd.onclick = addPesto;
 function addPesto() {
-    // trying to grab table using const table = $("basket-table"); doesn't work
     let table = document.getElementById("basket-table");
     let values = document.getElementById("grilled-vegi-pesto-size");
     let feedArray = values.value.split(",");
@@ -516,10 +515,17 @@ function addPesto() {
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
     cell1.innerHTML = feedArray[0];
     cell2.innerHTML = document.getElementById("grilled-vegi-pesto-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
+    cell5.innerHTML = "<button id=deletePesto>Delete</button>";
+    let deleteButton = document.getElementById("deletePesto");
+    deleteButton.onclick = removeRow;
+    function removeRow() {
+        this.closest("tr").remove();
+    }
 }
 let bangerAdd = document.getElementById("banger-add");
 bangerAdd.onclick = addBanger;
@@ -532,10 +538,17 @@ function addBanger() {
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
     cell1.innerHTML = feedArray[0];
     cell2.innerHTML = document.getElementById("absolute-banger-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
+    cell5.innerHTML = "<button id=deleteBanger>Delete</button>";
+    let deleteButton = document.getElementById("deleteBanger");
+    deleteButton.onclick = removeRow;
+    function removeRow() {
+        this.closest("tr").remove();
+    }
 }
 let theCheeseburgerAdd = document.getElementById("the-cheeseburger-add");
 theCheeseburgerAdd.onclick = addTheCheeseburger;
@@ -548,10 +561,12 @@ function addTheCheeseburger() {
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
     cell1.innerHTML = feedArray[0];
     cell2.innerHTML = document.getElementById("the-cheeseburger-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
+    cell5.innerHTML = "<button id=delete>Delete</button>";
 }
 let theMeatfielderAdd = document.getElementById("the-meatfielder-add");
 theMeatfielderAdd.onclick = addTheMeatfielder;
@@ -564,10 +579,12 @@ function addTheMeatfielder() {
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
     cell1.innerHTML = feedArray[0];
     cell2.innerHTML = document.getElementById("the-meatfielder-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
+    cell5.innerHTML = "<button id=delete>Delete</button>";
 } // commented out code triggers a custom function, replaced this for bootstrap modal code
  // function addItem() {
  //     alert ("Item added to order");
