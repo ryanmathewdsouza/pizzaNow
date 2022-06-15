@@ -1,13 +1,8 @@
 import * as bootstrap from 'bootstrap';
 
-setInterval(function() { newSum(); }, 3000);
+setInterval(function() { sumPrices(); }, 1000);
 
 function sumPrices() {
-    let table = document.getElementById("basket-table");
-    alert("working as expected");
-}
-
-function newSum() {
     let table = document.getElementById("basket-table");
     let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
         return total + parseFloat(row.cells[3].innerHTML);
