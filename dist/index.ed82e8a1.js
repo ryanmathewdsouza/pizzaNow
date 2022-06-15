@@ -566,7 +566,12 @@ function addTheCheeseburger() {
     cell2.innerHTML = document.getElementById("the-cheeseburger-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=delete>Delete</button>";
+    cell5.innerHTML = "<button id=deleteCheeseburger>Delete</button>";
+    let deleteButton = document.getElementById("deleteCheeseburger");
+    deleteButton.onclick = removeRow;
+    function removeRow() {
+        this.closest("tr").remove();
+    }
 }
 let theMeatfielderAdd = document.getElementById("the-meatfielder-add");
 theMeatfielderAdd.onclick = addTheMeatfielder;
@@ -584,7 +589,12 @@ function addTheMeatfielder() {
     cell2.innerHTML = document.getElementById("the-meatfielder-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=delete>Delete</button>";
+    cell5.innerHTML = "<button id=deleteTheMeatfielder>Delete</button>";
+    let deleteButton = document.getElementById("deleteTheMeatfielder");
+    deleteButton.onclick = removeRow;
+    function removeRow() {
+        this.closest("tr").remove();
+    }
 } // commented out code triggers a custom function, replaced this for bootstrap modal code
  // function addItem() {
  //     alert ("Item added to order");
