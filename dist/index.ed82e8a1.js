@@ -504,11 +504,11 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"cyUIL":[function(require,module,exports) {
 var _bootstrap = require("bootstrap");
-let pestoAdd = document.getElementById("pesto-add");
-pestoAdd.onclick = addPesto;
-function addPesto() {
+let tandooriAdd = document.getElementById("tandoori-add");
+tandooriAdd.onclick = addTandoori;
+function addTandoori() {
     let table = document.getElementById("basket-table");
-    let values = document.getElementById("grilled-vegi-pesto-size");
+    let values = document.getElementById("tandoori-hot-size");
     let feedArray = values.value.split(",");
     let row = table.insertRow(-1);
     let cell1 = row.insertCell(0);
@@ -517,11 +517,11 @@ function addPesto() {
     let cell4 = row.insertCell(3);
     let cell5 = row.insertCell(4);
     cell1.innerHTML = feedArray[0];
-    cell2.innerHTML = document.getElementById("grilled-vegi-pesto-crust").value;
+    cell2.innerHTML = document.getElementById("tandoori-hot-crust").value;
     cell3.innerHTML = feedArray[1];
     cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=deletePesto>Delete</button>";
-    let deleteButton = document.getElementById("deletePesto");
+    cell5.innerHTML = "<button id=deleteTandoori>Delete</button>";
+    let deleteButton = document.getElementById("deleteTandoori");
     deleteButton.onclick = removeRow;
     function removeRow() {
         this.closest("tr").remove();
