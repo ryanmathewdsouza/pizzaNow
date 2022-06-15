@@ -504,6 +504,20 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"cyUIL":[function(require,module,exports) {
 var _bootstrap = require("bootstrap");
+setInterval(function() {
+    newSum();
+}, 3000);
+function sumPrices() {
+    let table = document.getElementById("basket-table");
+    alert("working as expected");
+}
+function newSum() {
+    let table = document.getElementById("basket-table");
+    let subTotal = Array.from(table.rows).slice(1).reduce((total, row)=>{
+        return total + parseFloat(row.cells[3].innerHTML);
+    }, 0);
+    document.getElementById("totalPrice").innerHTML = "Total price for basket \xa3" + subTotal.toFixed(2);
+}
 let tandooriAdd = document.getElementById("tandoori-add");
 tandooriAdd.onclick = addTandoori;
 function addTandoori() {
