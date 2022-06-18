@@ -1,115 +1,100 @@
 import * as bootstrap from 'bootstrap';
+import button from "bootstrap/js/src/button";
 
-setInterval(function() { sumPrices(); }, 1000);
+// run sumPrices(), to calculate basket total, every second
+setInterval(function() { updateBasketTotal(); }, 1000);
+let table = document.getElementById("basket-table");
+// table.addEventListener('change', updateBasketTotal);
 
-function sumPrices() {
-    let table = document.getElementById("basket-table");
+
+// calculate basket total
+function updateBasketTotal() {
+    // table = document.getElementById("basket-table");
     let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
         return total + parseFloat(row.cells[3].innerHTML);
     }, 0);
     document.getElementById("totalPrice").innerHTML = "Total price for basket £" + subTotal.toFixed(2);
-
 }
 
-let tandooriAdd = document.getElementById("tandoori-add");
-tandooriAdd.onclick = addTandoori;
+// add event listeners to pizza add item buttons, to add pizza to basket
+let addPizzaButtons = document.getElementsByClassName("pizza-add-item");
+for (let i = 0; i < addPizzaButtons.length; i++) {
+    let button = addPizzaButtons[i];
+    button.addEventListener('click', addPizzaToBasket);
+}
 
-function addTandoori() {
+// add pizzas to basket
+function addPizzaToBasket(event) {
+
+// Grab the pizza size, crust, and name. Attach to feedArray
+let button = event.target;
+let rowElement = button.parentElement;
+let sizeValues = rowElement.getElementsByClassName('pizza-size')[0];
+let feedArray = sizeValues.value.split(",");
+
+// fill cell with crust
+let cardBody = button.parentElement.parentElement;
+let crustRow = cardBody.getElementsByClassName("row")[1];
+let pizzaCrustSelect = crustRow.getElementsByClassName("pizza-crust")[0];
+let crustSelected = pizzaCrustSelect.value;
+
+// alert(sizeValues.options[sizeValues.selectedIndex].value);
+if(pizzaCrustSelect.options[pizzaCrustSelect.selectedIndex].value == "Select crust" ||
+    sizeValues.options[sizeValues.selectedIndex].value == "Select size") {
+    alert("Please select a size and crust for your pizza.");
+} else {
+    // grab the pizza name, this has been replaced by code block below that grabs size, crust, and name in one go
+    // let button = event.target;
+    // let cardBody = button.parentElement.parentElement;
+    // let name = cardBody.getElementsByClassName("item-name")[0].innerText;
+    // alert (name);
+
     let table = document.getElementById("basket-table");
-    let values = document.getElementById("tandoori-hot-size");
-    let feedArray = values.value.split(",");
+
+    // Grab the pizza size, crust, and name. Attach to feedArray
+    // let button - let feedArray goes here
+
+
+    // add row to table and insert cells
     let row = table.insertRow(-1);
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
     let cell5 = row.insertCell(4);
+
+    // assign values to empty cells
+    // fill cell with size
     cell1.innerHTML = feedArray[0];
-    cell2.innerHTML = document.getElementById("tandoori-hot-crust").value;
+    // fill cell with crust
+    // let cardBody - let crustSelected code goes here
+
+
+
+    cell2.innerHTML = crustSelected;
+    // fill cell with name
     cell3.innerHTML = feedArray[1];
+    // fill cell with price
     cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=deleteTandoori>Delete</button>";
-    let deleteButton = document.getElementById('deleteTandoori');
-    deleteButton.onclick = removeRow;
-    function removeRow() {
-        this.closest('tr').remove();
+    cell5.innerHTML = "<button class=delete>Delete</button>";
+
+    let deleteButtons = document.getElementsByClassName('delete');
+    // following lines of code only run inside the add pizza to basket function, not outside of it
+    for (let i = 0; i < deleteButtons.length; i++) {
+        let button = deleteButtons[i];
+        button.addEventListener('click', deleteRow)
+        // deleteTandooriButtons[i].onclick = test;
+    }
+    // This function runs multiple times when there are multiple items in the basket. Is that a problem?
+    function deleteRow(event) {
+        let buttonClicked = event.target;
+        buttonClicked.parentElement.parentElement.remove();
     }
 }
 
-let bangerAdd = document.getElementById("banger-add");
-bangerAdd.onclick = addBanger;
 
-function addBanger() {
-    let table = document.getElementById("basket-table");
-    let values = document.getElementById("absolute-banger-size");
-    let feedArray = values.value.split(",");
-    let row = table.insertRow(-1);
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(3);
-    let cell5 = row.insertCell(4);
-    cell1.innerHTML = feedArray[0];
-    cell2.innerHTML = document.getElementById("absolute-banger-crust").value;
-    cell3.innerHTML = feedArray[1];
-    cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=deleteBanger>Delete</button>";
-    let deleteButton = document.getElementById('deleteBanger');
-    deleteButton.onclick = removeRow;
-    function removeRow() {
-        this.closest('tr').remove();
-    }
 }
 
-let theCheeseburgerAdd = document.getElementById("the-cheeseburger-add");
-theCheeseburgerAdd.onclick = addTheCheeseburger;
-
-function addTheCheeseburger() {
-    let table = document.getElementById("basket-table");
-    let values = document.getElementById("the-cheeseburger-size");
-    let feedArray = values.value.split(",");
-    let row = table.insertRow(-1);
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(3);
-    let cell5 = row.insertCell(4);
-    cell1.innerHTML = feedArray[0];
-    cell2.innerHTML = document.getElementById("the-cheeseburger-crust").value;
-    cell3.innerHTML = feedArray[1];
-    cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=deleteCheeseburger>Delete</button>";
-    let deleteButton = document.getElementById('deleteCheeseburger');
-    deleteButton.onclick = removeRow;
-    function removeRow() {
-        this.closest('tr').remove();
-    }
-}
-
-let theMeatfielderAdd = document.getElementById("the-meatfielder-add");
-theMeatfielderAdd.onclick = addTheMeatfielder;
-
-function addTheMeatfielder() {
-    let table = document.getElementById("basket-table");
-    let values = document.getElementById("the-meatfielder-size");
-    let feedArray = values.value.split(",");
-    let row = table.insertRow(-1);
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(3);
-    let cell5 = row.insertCell(4);
-    cell1.innerHTML = feedArray[0];
-    cell2.innerHTML = document.getElementById("the-meatfielder-crust").value;
-    cell3.innerHTML = feedArray[1];
-    cell4.innerHTML = feedArray[2];
-    cell5.innerHTML = "<button id=deleteTheMeatfielder>Delete</button>";
-    let deleteButton = document.getElementById('deleteTheMeatfielder');
-    deleteButton.onclick = removeRow;
-    function removeRow() {
-        this.closest('tr').remove();
-    }
-}
 // commented out code triggers a custom function, replaced this for bootstrap modal code
 // function addItem() {
 //     alert ("Item added to order");
