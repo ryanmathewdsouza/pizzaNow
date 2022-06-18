@@ -507,17 +507,15 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _bootstrap = require("bootstrap");
 var _button = require("bootstrap/js/src/button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+// importing alert, as shown below, stops the alerts from working
+// import alert from "bootstrap/js/src/alert";
 // run sumPrices(), to calculate basket total, every second
-setInterval(function() {
-    updateBasketTotal();
-}, 1000);
-let table = document.getElementById("basket-table");
-// table.addEventListener('change', updateBasketTotal);
+// setInterval(function() { updateBasketTotal(); }, 1000);
 // calculate basket total
 function updateBasketTotal() {
-    // table = document.getElementById("basket-table");
+    let table = document.getElementById("basket-table");
     let subTotal = Array.from(table.rows).slice(1).reduce((total, row)=>{
-        return total + parseFloat(row.cells[3].innerHTML);
+        return total + parseFloat(row.cells[3].innerHTML.replace("\xa3", ""));
     }, 0);
     document.getElementById("totalPrice").innerHTML = "Total price for basket \xa3" + subTotal.toFixed(2);
 }
@@ -527,10 +525,52 @@ for(let i = 0; i < addPizzaButtons.length; i++){
     let button = addPizzaButtons[i];
     button.addEventListener("click", addPizzaToBasket);
 }
-// add pizzas to basket
-function addPizzaToBasket(event1) {
-    // Grab the pizza size, crust, and name. Attach to feedArray
+// add event listeners to side add item buttons, to add side to basket
+let addSideButtons = document.getElementsByClassName("side-add-item");
+for(let i1 = 0; i1 < addSideButtons.length; i1++){
+    let sideButton = addSideButtons[i1];
+    sideButton.addEventListener("click", addSideToBasket);
+}
+function addSideToBasket(event1) {
     let button = event1.target;
+    let rowElement = button.parentElement;
+    let hiddenInput = rowElement.getElementsByClassName("side-values")[0];
+    let feedArray = hiddenInput.value.split(",");
+    let table = document.getElementById("basket-table");
+    // add row to table and insert cells
+    let row = table.insertRow(-1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
+    // assign values to empty cells
+    // fill cell with size
+    cell1.innerHTML = "";
+    cell2.innerHTML = "";
+    // fill cell with name
+    cell3.innerHTML = feedArray[0];
+    // fill cell with price
+    cell4.innerHTML = feedArray[1];
+    cell5.innerHTML = "<button class=delete>Delete</button>";
+    let deleteButtons = document.getElementsByClassName("delete");
+    // following lines of code only run inside the add pizza to basket function, not outside of it
+    for(let i2 = 0; i2 < deleteButtons.length; i2++){
+        let button = deleteButtons[i2];
+        button.addEventListener("click", deleteRow);
+    }
+    // This function runs multiple times when there are multiple items in the basket. Is that a problem?
+    function deleteRow(event) {
+        let buttonClicked = event.target;
+        buttonClicked.parentElement.parentElement.remove();
+        updateBasketTotal();
+    }
+    updateBasketTotal();
+}
+// add pizzas to basket
+function addPizzaToBasket(event2) {
+    // Grab the pizza size, crust, and name. Attach to feedArray
+    let button = event2.target;
     let rowElement = button.parentElement;
     let sizeValues = rowElement.getElementsByClassName("pizza-size")[0];
     let feedArray = sizeValues.value.split(",");
@@ -538,7 +578,7 @@ function addPizzaToBasket(event1) {
     let cardBody = button.parentElement.parentElement;
     let crustRow = cardBody.getElementsByClassName("row")[1];
     let pizzaCrustSelect = crustRow.getElementsByClassName("pizza-crust")[0];
-    let crustSelected = pizzaCrustSelect.value;
+    // let crustSelected = pizzaCrustSelect.value;
     // alert(sizeValues.options[sizeValues.selectedIndex].value);
     if (pizzaCrustSelect.options[pizzaCrustSelect.selectedIndex].value == "Select crust" || sizeValues.options[sizeValues.selectedIndex].value == "Select size") alert("Please select a size and crust for your pizza.");
     else {
@@ -547,11 +587,9 @@ function addPizzaToBasket(event1) {
         // let cardBody = button.parentElement.parentElement;
         // let name = cardBody.getElementsByClassName("item-name")[0].innerText;
         // alert (name);
-        let table1 = document.getElementById("basket-table");
-        // Grab the pizza size, crust, and name. Attach to feedArray
-        // let button - let feedArray goes here
+        let table = document.getElementById("basket-table");
         // add row to table and insert cells
-        let row = table1.insertRow(-1);
+        let row = table.insertRow(-1);
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
@@ -560,8 +598,6 @@ function addPizzaToBasket(event1) {
         // assign values to empty cells
         // fill cell with size
         cell1.innerHTML = feedArray[0];
-        // fill cell with crust
-        // let cardBody - let crustSelected code goes here
         cell2.innerHTML = crustSelected;
         // fill cell with name
         cell3.innerHTML = feedArray[1];
@@ -570,8 +606,8 @@ function addPizzaToBasket(event1) {
         cell5.innerHTML = "<button class=delete>Delete</button>";
         let deleteButtons = document.getElementsByClassName("delete");
         // following lines of code only run inside the add pizza to basket function, not outside of it
-        for(let i1 = 0; i1 < deleteButtons.length; i1++){
-            let button = deleteButtons[i1];
+        for(let i3 = 0; i3 < deleteButtons.length; i3++){
+            let button = deleteButtons[i3];
             button.addEventListener("click", deleteRow);
         // deleteTandooriButtons[i].onclick = test;
         }
@@ -579,7 +615,9 @@ function addPizzaToBasket(event1) {
         function deleteRow(event) {
             let buttonClicked = event.target;
             buttonClicked.parentElement.parentElement.remove();
+            updateBasketTotal();
         }
+        updateBasketTotal();
     }
 } // commented out code triggers a custom function, replaced this for bootstrap modal code
  // function addItem() {
