@@ -22,59 +22,6 @@ for (let i = 0; i < addPizzaButtons.length; i++) {
     button.addEventListener('click', addPizzaToBasket);
 }
 
-// add event listeners to side add item buttons, to add side to basket
-let addSideButtons = document.getElementsByClassName("side-add-item");
-for (let i = 0; i < addSideButtons.length; i++) {
-    let sideButton = addSideButtons[i];
-    sideButton.addEventListener('click', addSideToBasket);
-}
-
-function addSideToBasket(event) {
-
-
-    let button = event.target;
-    let rowElement = button.parentElement;
-    let hiddenInput = rowElement.getElementsByClassName('side-values')[0];
-    let feedArray = hiddenInput.value.split(",");
-
-    let table = document.getElementById("basket-table");
-
-    // add row to table and insert cells
-    let row = table.insertRow(-1);
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(3);
-    let cell5 = row.insertCell(4);
-
-    // assign values to empty cells
-    // fill cell with size
-    cell1.innerHTML = "";
-
-    cell2.innerHTML = "";
-    // fill cell with name
-    cell3.innerHTML = feedArray[0];
-    // fill cell with price
-    cell4.innerHTML = feedArray[1];
-    cell5.innerHTML = "<button class=delete>Delete</button>";
-
-    let deleteButtons = document.getElementsByClassName('delete');
-    // following lines of code only run inside the add pizza to basket function, not outside of it
-    for (let i = 0; i < deleteButtons.length; i++) {
-        let button = deleteButtons[i];
-        button.addEventListener('click', deleteRow)
-    }
-    // This function runs multiple times when there are multiple items in the basket. Is that a problem?
-    function deleteRow(event) {
-        let buttonClicked = event.target;
-        buttonClicked.parentElement.parentElement.remove();
-        updateBasketTotal();
-    }
-
-    updateBasketTotal();
-
-}
-
 // add pizzas to basket
 function addPizzaToBasket(event) {
 
@@ -138,6 +85,59 @@ function addPizzaToBasket(event) {
         updateBasketTotal();
     }
 
+
+}
+
+// add event listeners to side add item buttons, to add side to basket
+let addSideButtons = document.getElementsByClassName("side-add-item");
+for (let i = 0; i < addSideButtons.length; i++) {
+    let sideButton = addSideButtons[i];
+    sideButton.addEventListener('click', addSideToBasket);
+}
+
+function addSideToBasket(event) {
+
+
+    let button = event.target;
+    let rowElement = button.parentElement;
+    let hiddenInput = rowElement.getElementsByClassName('side-values')[0];
+    let feedArray = hiddenInput.value.split(",");
+
+    let table = document.getElementById("basket-table");
+
+    // add row to table and insert cells
+    let row = table.insertRow(-1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
+
+    // assign values to empty cells
+    // fill cell with size
+    cell1.innerHTML = "";
+
+    cell2.innerHTML = "";
+    // fill cell with name
+    cell3.innerHTML = feedArray[0];
+    // fill cell with price
+    cell4.innerHTML = feedArray[1];
+    cell5.innerHTML = "<button class=delete>Delete</button>";
+
+    let deleteButtons = document.getElementsByClassName('delete');
+    // following lines of code only run inside the add pizza to basket function, not outside of it
+    for (let i = 0; i < deleteButtons.length; i++) {
+        let button = deleteButtons[i];
+        button.addEventListener('click', deleteRow)
+    }
+    // This function runs multiple times when there are multiple items in the basket. Is that a problem?
+    function deleteRow(event) {
+        let buttonClicked = event.target;
+        buttonClicked.parentElement.parentElement.remove();
+        updateBasketTotal();
+    }
+
+    updateBasketTotal();
 
 }
 
