@@ -475,19 +475,19 @@
             </div>
             <div class="col-lg-3 mb-2 sm-1">
                 <div class="card" style="width: 18rem;">
+
                     <img src="./assets/images/sides/garlic-bread.jpg" class="card-img-top" alt="Absolute Banger Pizza">
                     <div class="card-body">
                         <h5 class="item-name card-title text-body">Garlic Bread</h5>
-                        <label for="absolute-banger-size">Choose a size:</label>
 
                         <div class="row">
-                            <select name="absolute-banger-size" id="absolute-banger-size" class="pizza-size col-md-8">
+                            <input type="hidden" class="side-values" value="Garlic Bread" name="absolute-banger-size" id="absolute-banger-size" class="pizza-size col-md-8">
                                 <option selected disabled>Select size</option>
                                 <option value="Pizzanormous, Absolute Banger Pizza, £22.00">Pizzanormous - £22</option>
                                 <option value="Large, Absolute Banger Pizza, £18.00">Large - £18</option>
                                 <option value="Medium, Absolute Banger Pizza, £15.00">Medium - £15</option>
                                 <option value="Small, Absolute Banger Pizza, £12.00">Small - £12</option>
-                            </select>
+                            </inputselect>
                             <button id="banger-add" class="pizza-add-item btn btn-primary col-md-4" onclick="addBanger()">Add item</button>
                         </div>
                         <div class="row">

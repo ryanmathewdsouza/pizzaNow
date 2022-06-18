@@ -88,7 +88,7 @@ function addPizzaToBasket(event) {
     let cardBody = button.parentElement.parentElement;
     let crustRow = cardBody.getElementsByClassName("row")[1];
     let pizzaCrustSelect = crustRow.getElementsByClassName("pizza-crust")[0];
-    // let crustSelected = pizzaCrustSelect.value;
+    let crustSelected = pizzaCrustSelect.value;
 
     // alert(sizeValues.options[sizeValues.selectedIndex].value);
     if(pizzaCrustSelect.options[pizzaCrustSelect.selectedIndex].value == "Select crust" ||
